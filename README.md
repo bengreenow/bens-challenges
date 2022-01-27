@@ -5,5 +5,5 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Frontend Technologies
 
-    - Next.js       
-    - Tailwind.css
+- Next.js
+- Tailwind.css
