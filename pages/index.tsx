@@ -1,8 +1,8 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import Wrapper from "../components/Wrapper";
+import { NextPageWithLayout } from "./_app";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
     return (
         <Wrapper>
             <div className="flex items-center h-screen justify-center">
