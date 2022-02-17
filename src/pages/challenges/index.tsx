@@ -1,4 +1,5 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import ReactMarkdown from "react-markdown";
 import { getLayout } from "../../layouts/ChallengesLayout";
 import { fetchAPI } from "../../lib/strapi";
 import { Challenge } from "../../types/Challenge";
@@ -11,11 +12,7 @@ type PageProps = {
 const Challenges: NextPageWithLayout = ({
     challenges,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-    return (
-        <div>
-            This is the default Challenge Page {JSON.stringify(challenges)}
-        </div>
-    );
+    return <div>Welcome home</div>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {

@@ -3,12 +3,10 @@ export type Challenge = {
     Title: string;
     Difficulty: Difficulty;
     SubChallenges: Challenge[];
-}
+};
 
 export type MarkdownString = string;
 
-export enum Difficulty {
-    Easy,
-    Intermediate,
-    Hard
-}
+export const DIFFICULTIES = ["Easy", "Intermediate", "Hard"] as const;
+
+export type Difficulty = typeof DIFFICULTIES[number];

@@ -5,6 +5,7 @@ import { createContext, ReactElement, ReactNode } from "react";
 import { NextComponentType, NextPage } from "next";
 import App from "next/app";
 import { fetchAPI } from "../lib/strapi";
+import { Challenge } from "../types/Challenge";
 
 export type NextPageWithLayout = NextPage & {
     getLayout?: (page: ReactElement) => ReactNode;
@@ -24,19 +25,23 @@ export function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     return <SiteLayout>{getLayout(<Component {...pageProps} />)}</SiteLayout>;
 }
 
-MyApp.getInitialProps = async (ctx: any) => {
-    // Calls page's `getInitialProps` and fills `appProps.pageProps`
-    const appProps = await App.getInitialProps(ctx);
-    // Fetch global site settings from Strapi
-    const globalRes = await fetchAPI("/global", {
-        populate: {
-            defaultSeo: {
-                populate: "*",
-            },
-        },
-    });
-    // Pass the data to our page via props
-    return { ...appProps, pageProps: { global: globalRes.data } };
-};
+// MyApp.getInitialProps = async (ctx: any) => {
+//     // Calls page's `getInitialProps` and fills `appProps.pageProps`
+//     const appProps = await App.getInitialProps(ctx);
+//     // Fetch global site settings from Strapi
+//     const globalRes = await fetchAPI("/global", {
+//         populate: {
+//             defaultSeo: {
+//                 populate: "*",
+//             },
+//         },
+//     });
+
+//     // Pass the data to our page via props
+//     return {
+//         ...appProps,
+//         pageProps: { global: globalRes.data },
+//     };
+// };
 
 export default MyApp;

@@ -7,11 +7,11 @@ import Sidebar from "../components/Sidebar";
 export default function ChallengesLayout(props: { children: React.ReactNode }) {
     return (
         <Wrapper>
-            <div className="flex flex-row divide-white divide-x divide-opacity-70">
-                <div className="w-2/5">
+            <div className="flex flex-row divide-white divide-x divide-opacity-70 w-full">
+                <div className="w-2/5 basis-1">
                     <Sidebar />
                 </div>
-                <div className="w-3/5">{props.children}</div>
+                <div className="w-full">{props.children}</div>
             </div>
         </Wrapper>
     );
